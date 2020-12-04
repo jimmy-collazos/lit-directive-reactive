@@ -13,6 +13,8 @@ Esta directiva([lit-html directive](https://lit-html.polymer-project.org/api/mod
 
 Se puede utilizar junto a librerías como [RxJs](https://rxjs.dev/guide/overview), [most.js](https://github.com/cujojs/most) y [xstream](https://github.com/staltz/xstream). En general con cualquier librería que implemente Observable y Subject
 
+[Ver demo con ejemplos de uso](https://stackblitz.com/edit/lit-directive-reactive?file=index.js).
+
 ## Uso / Instalación
 
 Esta herramienta se exporta en los formatos [ESM](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/M%C3%B3dulos). Puedes descargarlo o instalarlo a través de [NPM](https://www.npmjs.com/) o desde [Unpkg](https://unpkg.com/).
