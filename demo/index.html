@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="container"></div>
+  <script type="module">
+    import {render, html} from '../node_modules/lit-html/lit-html.js'
+    import {Subject, Observable} from 'https://unpkg.com/rxjs@6.6.3/_esm5/index.js?module'
+    import {map, filter} from 'https://unpkg.com/rxjs@6.6.3/_esm5/operators/index.js?module'
+    import {subscribeDirective, toSubjectDirective} from '../lit-directive-reactive.js';
+
+    let value = 0;
+    const subject = new Subject();
+    
+    const valueObserver = subject.pipe(map(_ => value++));
+
+    const counterObservable = new Observable(subscriber => {
+      let count = 0;
+      subscriber.next(count);
+      setInterval(() => {
+        subscriber.next(++count);
+      }, 1000);
+    });
+
+    const toBooleanIsOdd = map(v => Boolean(v % 2));
+    
+    render(html`
+      <h1>Assert</h1>
+
+      <h2>subscribeDirective</h2>
+      <h3>NodePart</h3>
+      <span> ${subscribeDirective(counterObservable)} </span>
+      <h3>AttribuetePart</h3>
+      <input type="text" value="${subscribeDirective(counterObservable)}">
+      <h3>PropertyPart</h3>
+      <span .title=${subscribeDirective(counterObservable)}>move cursor to this and see the value in hint</span>
+      <h3>BooleanAttributePart<h3>
+      <button ?disabled=${subscribeDirective(counterObservable.pipe(toBooleanIsOdd))}>Disabled attributed is toggled</button>
+      <hr>
+      <h2>toSubjectDirective</h2>
+      <span>Counter: ${subscribeDirective(valueObserver)} </span> <br/>
+      <button @click=${toSubjectDirective(subject)}> Click +1 </button>
+      `, window.container);
+
+  </script>
+</body>
+</html>
