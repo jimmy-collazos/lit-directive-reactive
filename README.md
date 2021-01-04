@@ -1,4 +1,4 @@
-![](./header.png)
+![](./header.webp)
 <sup>_Social Media Photo by [Ryan Stone](https://unsplash.com/@rstone_design) on [Unsplash](https://unsplash.com/photos/OlxJVn9fxz4)_</sup>
 
 # :twisted_rightwards_arrows: Directiva `lit-html` para la programación rectiva
