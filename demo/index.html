@@ -7,11 +7,21 @@
 </head>
 <body>
   <div id="container"></div>
+  <script type="importmap">
+    {
+      "imports": {
+        "lit-html": "https://unpkg.com/lit-html@1.3.0/lit-html.js?module",
+        "lit-directive-reactive": "../lit-directive-reactive.js",
+        "rxjs": "https://unpkg.com/rxjs@6.6.3/_esm5/index.js?module",
+        "rxjs/": "https://unpkg.com/rxjs@6.6.3/_esm5/"
+      }
+    }
+  </script>
   <script type="module">
-    import {render, html} from '../node_modules/lit-html/lit-html.js'
-    import {Subject, Observable} from 'https://unpkg.com/rxjs@6.6.3/_esm5/index.js?module'
-    import {map, filter} from 'https://unpkg.com/rxjs@6.6.3/_esm5/operators/index.js?module'
-    import {subscribeDirective, toSubjectDirective} from '../lit-directive-reactive.js';
+    import {render, html} from 'lit-html'
+    import {Subject, Observable} from 'rxjs'
+    import {map, filter} from 'rxjs/operators/index.js?module'
+    import {subscribeDirective, toSubjectDirective} from 'lit-directive-reactive';
 
     let value = 0;
     const subject = new Subject();
