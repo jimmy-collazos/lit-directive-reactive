@@ -9,15 +9,15 @@
   <img alt="Licencia: GPL 3.0" src="https://img.shields.io/badge/GPL 3.0-license-yellowgreen" />
 </p>
 
-Esta directiva([lit-html directive](https://lit-html.polymer-project.org/api/modules/_lit_html_.html#directive)) permite enlazar objetos de la programación reactiva (Observable, Subject) en partes del rendirzado de [lit-html](https://lit-html.polymer-project.org/)
+This [lit-html directive](https://lit-html.polymer-project.org/api/modules/_lit_html_.html#directive) is for use some parts of your templates like an observable (Reactive programming).
 
-Se puede utilizar junto a librerías como [RxJs](https://rxjs.dev/guide/overview), [most.js](https://github.com/cujojs/most) y [xstream](https://github.com/staltz/xstream). En general con cualquier librería que implemente Observable y Subject
+Use with [RxJs](https://rxjs.dev/guide/overview), [most.js](https://github.com/cujojs/most) and [xstream](https://github.com/staltz/xstream) or wharever library with Observable and Subject implementation.
 
-[Ver demo con ejemplos de uso](https://stackblitz.com/edit/lit-directive-reactive?file=index.js).
+[See the demo with example](https://stackblitz.com/edit/lit-directive-reactive?file=index.js).
 
-## Uso / Instalación
+## Installation
 
-Esta herramienta se exporta en los formatos [ESM](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/M%C3%B3dulos). Puedes descargarlo o instalarlo a través de [NPM](https://www.npmjs.com/) o desde [Unpkg](https://unpkg.com/).
+Install from [NPM](https://www.npmjs.com/package/lit-directive-reactive) or use from [Unpkg](https://unpkg.com/lit-directive-reactive) CDN
 
 **Npm**
 ```sh
@@ -28,20 +28,21 @@ npm install --save lit-directive-reactive
 ```javascript
 import {subscribeDirective, toSubjectDirective} from 'https://unpkg.com/lit-directive-reactive?module'
 ```
+## API
 
 ## # subscribe(observable)
-> *Soporte para [AttributePart](https://lit-html.polymer-project.org/api/classes/_lit_html_.attributepart.html), [BooleanAttributePart](https://lit-html.polymer-project.org/api/classes/_lit_html_.booleanattributepart.html), [EventPart](https://lit-html.polymer-project.org/api/classes/_lit_html_.eventpart.html), [NodePart](https://lit-html.polymer-project.org/api/classes/_lit_html_.nodepart.html), [PropertyPart](https://lit-html.polymer-project.org/api/classes/_lit_html_.propertypart.html)*
+> *Support for [AttributePart](https://lit-html.polymer-project.org/api/classes/_lit_html_.attributepart.html), [BooleanAttributePart](https://lit-html.polymer-project.org/api/classes/_lit_html_.booleanattributepart.html), [EventPart](https://lit-html.polymer-project.org/api/classes/_lit_html_.eventpart.html), [NodePart](https://lit-html.polymer-project.org/api/classes/_lit_html_.nodepart.html), [PropertyPart](https://lit-html.polymer-project.org/api/classes/_lit_html_.propertypart.html)*
 
-Asigna el valor recibido, en el observable, a la parte ([Part](https://lit-html.polymer-project.org/api/interfaces/_lit_html_.part.html)) definida. 
+Update template [Part](https://lit-html.polymer-project.org/api/interfaces/_lit_html_.part.html) value with received value on Observable (next method)
 
-### _Parámentros_
-* **observable**: Valor observable
+### _Parameters_
+* **observable**: Observable object to subscribe
 
-### _Valor Devuelto_
+### _Return value_
 
-Devuelve un [Part](https://lit-html.polymer-project.org/api/interfaces/_lit_html_.part.html) de [lit-html](https://lit-html.polymer-project.org/)
+return template [Part](https://lit-html.polymer-project.org/api/interfaces/_lit_html_.part.html) of [lit-html](https://lit-html.polymer-project.org/)
 
-### _Ejemplo_
+### _Example_
 ```javascript
 import {render, html} from 'lit-html'
 import {subscribeDirective} from 'lit-directive-reactive';
@@ -63,18 +64,18 @@ render(html`
 ```
 
 ## # toSubject(subject)
-> *Actualmente sólo da soporte para [EventPart](https://lit-html.polymer-project.org/api/classes/_lit_html_.eventpart.html)*
+> *Currently support for [EventPart](https://lit-html.polymer-project.org/api/classes/_lit_html_.eventpart.html)*
 
-Se suscribe al evento y emite en el [Subject](http://reactivex.io/documentation/subject.html) definido.
+Emit event value to [Subject](http://reactivex.io/documentation/subject.html)
 
-### _Parámentros_
+### _Parameters_
 * **subject**: [Subject](http://reactivex.io/documentation/subject.html) to emit event value
 
-### _Valor Devuelto_
+### _Return value_
 
-Devuelve un [Part](https://lit-html.polymer-project.org/api/interfaces/_lit_html_.part.html) de [lit-html](https://lit-html.polymer-project.org/)
+return template [Part](https://lit-html.polymer-project.org/api/interfaces/_lit_html_.part.html) of [lit-html](https://lit-html.polymer-project.org/)
 
-### _Ejemplo_
+### _Example_
 ```javascript
 import {render, html} from 'lit-html'
 import {toSubjectDirective} from 'lit-directive-reactive';
