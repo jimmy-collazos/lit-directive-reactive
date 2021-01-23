@@ -1,6 +1,6 @@
 {
   "name": "lit-directive-reactive",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Lit-html directive for observer pattern (Reactive)",
   "main": "lit-directive-reactive.js",
   "author": {
@@ -8,9 +8,12 @@
     "name": "Jimmy Collazos"
   },
   "license": "GPL-3.0",
-  "dependencies": {
+  "peerDependencies": {
     "lit-html": "^1.3.0"
   },
+  "files": [
+    "lit-directive-reactive.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jimmy-collazos/lit-directive-reactive.git"
@@ -18,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/jimmy-collazos/lit-directive-reactive/issues"
   },
-  "module": "./lit-directive-reactive.js",
+  "module": "lit-directive-reactive.js",
   "homepage": "https://github.com/jimmy-collazos/lit-directive-reactive#README",
   "keywords": [
     "lit-html",
@@ -33,5 +36,6 @@
     "rxjs",
     "most.js",
     "xstream"
-  ]
+  ],
+  "type": "module"
 }
